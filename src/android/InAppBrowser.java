@@ -875,7 +875,7 @@ public class InAppBrowser extends CordovaPlugin {
 
             // Update the UI if we haven't already
             if (!newloc.equals(edittext.getText().toString())) {
-                //edittext.setText(newloc);
+                edittext.setText(newloc);
              }
 
             try {
