@@ -656,9 +656,6 @@ public class InAppBrowser extends CordovaPlugin {
                         closeDialog();
                     }
                 });
-                LinearLayout.LayoutParams ll = (LinearLayout.LayoutParams)close.getLayoutParams();    
-                ll.gravity = Gravity.CENTER;
-                close.setLayoutParams(ll);
 
                 // WebView
                 inAppWebView = new WebView(cordova.getActivity());
