@@ -642,19 +642,23 @@ public class InAppBrowser extends CordovaPlugin {
                 close.setId(Integer.valueOf(5));
                 int closeResId = activityRes.getIdentifier("ic_action_remove", "drawable", cordova.getActivity().getPackageName());
                 Drawable closeIcon = activityRes.getDrawable(closeResId);
-                if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN)
-                {
-                    close.setBackgroundDrawable(closeIcon);
-                }
-                else
-                {
-                    close.setBackground(closeIcon);
-                }
+//                if(android.os.Build.VERSION.SDK_INT < android.os.Build.VERSION_CODES.JELLY_BEAN)
+//                {
+//                    close.setBackgroundDrawable(closeIcon);
+//                }
+//                else
+//                {
+//                    close.setBackground(closeIcon);
+//                }
+                close.setText("Done");
                 close.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         closeDialog();
                     }
                 });
+                LinearLayout.LayoutParams ll = (LinearLayout.LayoutParams)close.getLayoutParams();    
+                ll.gravity = Gravity.CENTER;
+                close.setLayoutParams(ll);
 
                 // WebView
                 inAppWebView = new WebView(cordova.getActivity());
@@ -711,7 +715,7 @@ public class InAppBrowser extends CordovaPlugin {
                 actionButtonContainer.addView(forward);
 
                 // Add the views to our toolbar
-                toolbar.addView(actionButtonContainer);
+                //toolbar.addView(actionButtonContainer);
                 //toolbar.addView(edittext);
                 toolbar.addView(close);
 
